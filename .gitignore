@@ -1,0 +1,19 @@
+# Dependências
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Diretórios de build e cache
+dist/
+build/
+.cache/
+
+# Configurações do editor
+.vscode/
+.idea/
+
+# Arquivos de ambiente
+.env
