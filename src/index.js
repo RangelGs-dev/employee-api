@@ -14,7 +14,7 @@ const server = http.createServer(function (request, response) {
     return response.end();
   }
 
-  const parsedUrl = new URL(`http://192.168.2.77:3000${request.url}`);
+  const parsedUrl = new URL(`http://localhost:3000${request.url}`);
   console.log(request.url);
 
   console.log(
@@ -27,6 +27,8 @@ const server = http.createServer(function (request, response) {
   const splitEndpoint = pathname
     .split("/")
     .filter((routeItem) => Boolean(routeItem));
+
+  console.log(splitEndpoint);
 
   if (splitEndpoint.length > 1) {
     pathname = `/${splitEndpoint[0]}/:id`;

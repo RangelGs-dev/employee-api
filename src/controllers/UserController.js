@@ -3,14 +3,17 @@ const db = require("../db/db.js");
 // let users = require("../mocks/users");
 module.exports = {
   async listCardLinks(request, response) {
-    const { order } = request.query;
+    const { order, page = 1, limit = 6 } = request.query;
+    const offset = (page - 1) * limit;
     const orderDirection = order === "desc" ? "DESC" : "ASC";
     console.log(orderDirection);
 
+    const value = [limit, offset];
+    const query = `SELECT * FROM cartao_links ORDER BY id ${orderDirection} LIMIT $1 OFFSET $2`;
+
     try {
-      const result = await db.query(
-        `SELECT * FROM cartao_links ORDER BY id ${orderDirection}`
-      );
+      const result = await db.query(query, value);
+      // `SELECT * FROM cartao_links ORDER BY id ${orderDirection}`
       response.send(200, result.rows);
     } catch (error) {
       console.error(error);
