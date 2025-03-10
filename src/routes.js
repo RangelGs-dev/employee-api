@@ -1,10 +1,10 @@
 const UserController = require("./controllers/UserController");
 module.exports = [
-  // {
-  //   endpoint: "/",
-  //   method: "GET",
-  //   handler: UserController.listCardLinks,
-  // },
+  {
+    endpoint: "/",
+    method: "GET",
+    handler: UserController.listCardLinks,
+  },
   {
     endpoint: "/card-link",
     method: "GET",
@@ -21,28 +21,13 @@ module.exports = [
     handler: UserController.addCardLink,
   },
   {
-    endpoint: "/communicates",
+    endpoint: "/releases",
     method: "GET",
-    handler: UserController.listCommunicates,
+    handler: UserController.listReleases,
   },
-  // {
-  //   endpoint: "/users/:id",
-  //   method: "GET",
-  //   handler: UserController.getUserById,
-  // },
-  // {
-  //   endpoint: "/users",
-  //   method: "POST",
-  //   handler: UserController.createUser,
-  // },
-  // {
-  //   endpoint: "/users/:id",
-  //   method: "PUT",
-  //   handler: UserController.updateUser,
-  // },
-  // {
-  //   endpoint: "/users/:id",
-  //   method: "DELETE",
-  //   handler: UserController.deleteUser,
-  // },
+  {
+    endpoint: "/add-release",
+    method: "POST",
+    handler: UserController.addRelease,
+  },
 ];

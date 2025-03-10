@@ -58,12 +58,6 @@ const server = http.createServer(function (request, response) {
     response.writeHead(404, { "content-type": "text/html" });
     response.end(`Cannot ${request.method} ${parsedUrl.pathname}`);
   }
-  //   if (request.url === "/users" && request.method === "GET") {
-  //     UserControllers.listUsers(request, response);
-  //   } else {
-  //     response.writeHead(404, { "content-type": "text/html" });
-  //     response.end(`Cannot ${request.method} ${request.url}`);
-  //   }
 });
 
 server.listen(3000, function () {
