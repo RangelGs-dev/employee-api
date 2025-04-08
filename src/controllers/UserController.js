@@ -5,7 +5,6 @@ module.exports = {
     const { order, page = 1, limit = 8 } = request.query;
     const offset = (page - 1) * limit;
     const orderDirection = order === "desc" ? "DESC" : "ASC";
-    console.log(orderDirection);
 
     const value = [limit, offset];
     const query = `SELECT * FROM cartao_links ORDER BY id ${orderDirection} LIMIT $1 OFFSET $2`;

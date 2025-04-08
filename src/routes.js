@@ -11,7 +11,8 @@ module.exports = [
     handler: UserController.listCardLinks,
   },
   {
-    endpoint: "/card-link",
+    // endpoint: "/card-link",
+    endpoint: "/search-link",
     method: "GET",
     handler: UserController.getCardLink,
   },

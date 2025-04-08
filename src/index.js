@@ -24,6 +24,7 @@ const server = http.createServer(function (request, response) {
   let { pathname } = parsedUrl;
   let id = null;
 
+  console.log("Passou path aqui: ", pathname);
   const splitEndpoint = pathname
     .split("/")
     .filter((routeItem) => Boolean(routeItem));
@@ -41,6 +42,7 @@ const server = http.createServer(function (request, response) {
   if (route) {
     request.query = Object.fromEntries(parsedUrl.searchParams);
     request.params = { id };
+    console.log("Passou em fromEntries");
 
     response.send = function (statusCode, body) {
       response.writeHead(statusCode, { "content-type": "application/json" });
@@ -52,6 +54,8 @@ const server = http.createServer(function (request, response) {
         route.handler(request, response);
       });
     } else {
+      console.log("Validou route");
+
       route.handler(request, response);
     }
   } else {
