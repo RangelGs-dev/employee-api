@@ -2,7 +2,7 @@ const db = require("../db/db.js");
 
 module.exports = {
   async listCardLinks(request, response) {
-    const { order, page = 1, limit = 8 } = request.query;
+    const { order, page = 1, limit = 100 } = request.query;
     const offset = (page - 1) * limit;
     const orderDirection = order === "desc" ? "DESC" : "ASC";
 

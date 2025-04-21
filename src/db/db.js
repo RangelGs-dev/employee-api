@@ -2,14 +2,13 @@
 // npm install pg
 
 const { Pool } = require("pg");
+require("dotenv").config();
 
-// Abaixo configuro a conexão com o Postgre
+console.log("DATABASE_URL:", process.env.DATABASE_URL);
+
+// Abaixo configuro a conexão com o PostgreSQL
 const pool = new Pool({
-  user: "rangelgs",
-  host: "localhost",
-  database: "employee_prd",
-  password: "201806",
-  port: 5432,
+  connectionString: process.env.DATABASE_URL,
 });
 
 // Função que abre e consulta no banco
